@@ -9,6 +9,7 @@ import About from './pages/About';
 import Books from './pages/Books';
 import Book from './pages/Book';
 import Login from './pages/Login';
+import Logout from './pages/Logout';
 import NotFound from './pages/NotFound';
 
 class App extends Component {
