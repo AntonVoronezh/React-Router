@@ -4,7 +4,7 @@ import data from '../data/books';
 import Card from '../components/Card';
 
 function Books({ match }) {
-	const books = data.filter(b => b.topic === match.params.topic);
+	const books = match.params.topic ? data.filter(b => b.topic === match.params.topic) : data;
 	return (
 		<main id="books">
 			<div className="mdc-layout-grid">
