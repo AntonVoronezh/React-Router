@@ -19,11 +19,11 @@ class App extends Component {
 	state = { user: null };
 
 	login = user => {
-		this.setState({ user });
+		this.setState({ user }, () => this.props.history.push('/books'));
 	};
 
 	logout = () => {
-		this.setState({ user: null });
+		this.setState({ user: null }, () => this.props.history.push('/'));
 	};
 
 	render() {
