@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, withRouter } from 'react-router-dom';
 
 import Toolbar from './components/Toolbar';
 import Content from './components/Content';
@@ -13,7 +13,7 @@ import Login from './pages/Login';
 import Logout from './pages/Logout';
 import NotFound from './pages/NotFound';
 
-import data from '../data/books';
+import data from './data/books';
 
 class App extends Component {
 	state = { user: null };
@@ -30,20 +30,31 @@ class App extends Component {
 		return (
 			<BrowserRouter>
 				<div className="app">
-					<Toolbar />
+					<Toolbar user={this.state.user} />
 
 					<Content>
 						<Route path="/books" component={Sidenav} />
 						<Switch>
 							<Route exact path="/" component={Home} />
 							<Route path="/about" component={About} />
-							<Route path="/login" render={props => <Login omLogin={this.login}/>} />
-							<Route path="/logout" render={props => <Logout omLogout={this.logout}/>} />
+							<Route path="/login" render={props => <Login onLogin={this.login} />} />
+							<Route path="/logout" render={props => <Logout onLogout={this.logout} />} />
 							{/* <Route exact path="/books" component={Books} /> */}
 							{/* <Route exact path="/books/:topic?" component={Books} /> */}
 							{/* <Route path="/books/:topic/:Book" component={Book} /> */}
-							<PrivateRoute exact path="/books/:topic?" component={Books} data={data}/>
-							<PrivateRoute path="/books/:topic/:Book" component={Book} data={data}/>
+							<PrivateRoute
+								exact
+								path="/books/:topic?"
+								user={this.state.user}
+								component={Books}
+								data={data}
+							/>
+							<PrivateRoute
+								path="/books/:topic/:Book"
+								user={this.state.user}
+								component={Book}
+								data={data}
+							/>
 
 							<Route component={NotFound} />
 						</Switch>
@@ -54,4 +65,4 @@ class App extends Component {
 	}
 }
 
-export default App;
+export default withRouter(App);
