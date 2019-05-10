@@ -17,7 +17,7 @@ class App extends Component {
 	login = user => {
 		this.setState({ user });
 	};
-	
+
 	logout = () => {
 		this.setState({ user: null });
 	};
@@ -33,10 +33,12 @@ class App extends Component {
 						<Switch>
 							<Route exact path="/" component={Home} />
 							<Route path="/about" component={About} />
+							<Route path="/login" render={props => <Login omLogin={this.login}/>} />
+							<Route path="/logout" render={props => <Logout omLogout={this.logout}/>} />
 							{/* <Route exact path="/books" component={Books} /> */}
 							<Route exact path="/books/:topic?" component={Books} />
 							<Route path="/books/:topic/:Book" component={Book} />
-							<Route path="/login" component={Login} />
+
 							<Route component={NotFound} />
 						</Switch>
 					</Content>
