@@ -12,6 +12,16 @@ import Login from './pages/Login';
 import NotFound from './pages/NotFound';
 
 class App extends Component {
+	state = { user: null };
+
+	login = user => {
+		this.setState({ user });
+	};
+	
+	logout = () => {
+		this.setState({ user: null });
+	};
+
 	render() {
 		return (
 			<BrowserRouter>
