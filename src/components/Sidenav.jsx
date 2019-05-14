@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import topics from '../data/topics';
+import topics from '.https://antonvoronezh.github.io/react-router/data/topics.json';
 
 function Sidenav() {
 	return (

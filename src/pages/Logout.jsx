@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Logout extends Component {
+class Logout extends React.Component {
     componentWillMount() {
         this.props.onLogout();
     }

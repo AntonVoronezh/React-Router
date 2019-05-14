@@ -1,5 +1,6 @@
 {
   "name": "react-router",
+  "homepage": "https://antonvoronezh.github.io/react-router",
   "version": "1.0.0",
   "private": true,
   "devDependencies": {

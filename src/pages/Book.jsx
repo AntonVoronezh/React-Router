@@ -1,6 +1,6 @@
 import React from 'react';
 
-import books from '../data/books';
+import books from 'https://antonvoronezh.github.io/react-router/data/books.json';
 
 function Book({ match }) {
 	const book = books.find(book => book.slug === match.params.Book);

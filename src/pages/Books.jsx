@@ -1,6 +1,6 @@
 import React from 'react';
 
-import data from '../data/books';
+import data from 'https://antonvoronezh.github.io/react-router/data/books.json';
 import Card from '../components/Card';
 
 function Books({ match }) {
